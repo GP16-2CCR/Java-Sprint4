@@ -73,6 +73,10 @@ curl http://localhost:8080/api/relatorios
 curl "http://localhost:8080/api/relatorios/periodo?inicio=2020-01-01T00:00:00&fim=2030-01-01T00:00:00"
 ```
 
+## Registro de requisições
+
+O arquivo [registro-requisicoes.md](registro-requisicoes.md) guarda 10 chamadas reais, com método, rota, status HTTP e corpo da resposta. Inclui listar, criar, buscar, atualizar e remover trecho, criar equipe, gerar relatório, listar o histórico e consultar por período.
+
 ## Reflexão
 
 **Por que o Repository é uma interface e não uma classe? Quem escreve a implementação e quando?**
