@@ -9,14 +9,14 @@ API REST do monitoramento de vegetação nas rodovias. O protótipo de console d
 A senha não fica no código. Defina as credenciais do Oracle FIAP antes de subir a API:
 
 ```powershell
-$env:ORACLE_USERNAME="SEU_RM"
+$env:ORACLE_USERNAME="RM563253"
 $env:ORACLE_PASSWORD="SUA_SENHA"
 mvn spring-boot:run
 ```
 
 A aplicação sobe em `http://localhost:8080`.
 
-O `application.properties` aponta para `oracle.fiap.com.br:1521:ORCL` e usa `spring.jpa.hibernate.ddl-auto=none`. O Hibernate não cria nem altera tabela: ele usa `TRECHO_RODOVIA`, `EQUIPE_MANUTENCAO`, `INTERVENCAO_OPERACIONAL`, `RELATORIO_PRIORIDADE` e `ITEM_RELATORIO`, com as sequences de identity da Sprint 3 (`ISEQ$$_4206605`, `ISEQ$$_4206625`, `ISEQ$$_4206610`, `ISEQ$$_4206618` e `ISEQ$$_4206621`).
+O `application.properties` aponta para `oracle.fiap.com.br:1521:ORCL` e usa `spring.jpa.hibernate.ddl-auto=none`. O Hibernate não cria nem altera tabela. O script `schema.sql` cria, no usuário `RM563253`, as tabelas `TRECHO_RODOVIA`, `EQUIPE_MANUTENCAO`, `INTERVENCAO_OPERACIONAL`, `RELATORIO_PRIORIDADE` e `ITEM_RELATORIO`, com as sequences `SEQ_TRECHO_RODOVIA`, `SEQ_EQUIPE_MANUTENCAO`, `SEQ_INTERVENCAO_OPERACIONAL`, `SEQ_RELATORIO_PRIORIDADE` e `SEQ_ITEM_RELATORIO`.
 
 ## Endpoints
 
@@ -87,7 +87,9 @@ curl.exe "http://localhost:8080/api/relatorios/periodo?inicio=2020-01-01T00:00:0
 
 ## Registro de requisições
 
-Chamadas executadas contra o Oracle da Sprint 3 em 23/10/2026. Os registros de teste foram apagados depois; os trechos originais (KM 10,5, 25, 42,7 e 60,5) permaneceram.
+As tabelas foram criadas no usuário `RM563253` com o `schema.sql`. Nesse schema, `GET /api/trechos`, `GET /api/equipes` e `GET /api/intervencoes` responderam **200**, e `POST /api/relatorios` respondeu **201** com as prioridades 84, 66 e 59.
+
+As chamadas abaixo foram feitas antes, no schema em que a Sprint 3 já estava carregada. Os registros de teste foram apagados depois; os trechos originais (KM 10,5, 25, 42,7 e 60,5) permaneceram.
 
 1. `POST /api/trechos` com KM 88,5 e altura 20 → **201**, corpo com `id`, `tipoTerreno` SECO e `tipoCrescimento` SECO.
 2. `PUT /api/trechos/{id}` mudando o terreno para UMIDO e a altura para 30 → **200**.

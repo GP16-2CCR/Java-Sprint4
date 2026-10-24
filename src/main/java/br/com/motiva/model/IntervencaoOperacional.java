@@ -16,7 +16,7 @@ public class IntervencaoOperacional {
 
     @Id
     @GeneratedValue(strategy = GenerationType.SEQUENCE, generator = "seqIntervencao")
-    @SequenceGenerator(name = "seqIntervencao", sequenceName = "ISEQ$$_4206610", allocationSize = 1)
+    @SequenceGenerator(name = "seqIntervencao", sequenceName = "SEQ_INTERVENCAO_OPERACIONAL", allocationSize = 1)
     @Column(name = "ID_INTERVENCAO")
     private Long id;
 

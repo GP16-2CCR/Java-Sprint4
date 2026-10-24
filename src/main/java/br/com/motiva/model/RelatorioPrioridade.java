@@ -22,7 +22,7 @@ public class RelatorioPrioridade {
 
     @Id
     @GeneratedValue(strategy = GenerationType.SEQUENCE, generator = "seqRelatorio")
-    @SequenceGenerator(name = "seqRelatorio", sequenceName = "ISEQ$$_4206618", allocationSize = 1)
+    @SequenceGenerator(name = "seqRelatorio", sequenceName = "SEQ_RELATORIO_PRIORIDADE", allocationSize = 1)
     @Column(name = "ID_RELATORIO")
     private Long id;
 

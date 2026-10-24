@@ -19,7 +19,7 @@ public class ItemRelatorio {
 
     @Id
     @GeneratedValue(strategy = GenerationType.SEQUENCE, generator = "seqItem")
-    @SequenceGenerator(name = "seqItem", sequenceName = "ISEQ$$_4206621", allocationSize = 1)
+    @SequenceGenerator(name = "seqItem", sequenceName = "SEQ_ITEM_RELATORIO", allocationSize = 1)
     @Column(name = "ID_ITEM")
     private Long id;
 

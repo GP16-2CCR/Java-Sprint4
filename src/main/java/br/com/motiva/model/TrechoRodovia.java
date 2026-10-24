@@ -17,7 +17,7 @@ public class TrechoRodovia {
 
     @Id
     @GeneratedValue(strategy = GenerationType.SEQUENCE, generator = "seqTrecho")
-    @SequenceGenerator(name = "seqTrecho", sequenceName = "ISEQ$$_4206605", allocationSize = 1)
+    @SequenceGenerator(name = "seqTrecho", sequenceName = "SEQ_TRECHO_RODOVIA", allocationSize = 1)
     @Column(name = "ID_TRECHO")
     private Long id;
 
